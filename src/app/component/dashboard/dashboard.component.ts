@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
     if(data.results) {
       // go through all the elements of array
       data.results.forEach(element => {
-        element.backdrop_path = "https://image.tmdb.org/t/p/original"+element.backdrop_path+"?api+key="+this.api_key;
+        element.backdrop_path = "https://image.tmdb.org/t/p/original"+element.backdrop_path+"?api_key="+this.api_key;
 
         // make sure there is title available
         if(!element.title) {
@@ -50,11 +50,22 @@ export class DashboardComponent implements OnInit {
     return data;
   }
 
+  changeData(data: any): any {
+    if(!data.backdrop_path) {
+      data.backdrop_path = "https://image.tmdb.org/t/p/original"+data.poster_path+"?api_key="+this.api_key
+      console.log( data.backdrop_path);
+    } else {
+      data.backdrop_path = "https://image.tmdb.org/t/p/original"+data.backdrop_path+"?api_key="+this.api_key
+      console.log( data.backdrop_path);
+    }
+    return data;
+  }
+
   // function to fetch lates movies
   getLatestMovie() {
     this.dataService.getLatestMovie().subscribe(data => {
       // assign modified data to variable
-      this.latestMove = data;
+      this.latestMove = this.changeData(data);
     }, err => {
       console.log("error while geting latest movie");
       console.log(err);
@@ -66,6 +77,7 @@ export class DashboardComponent implements OnInit {
     this.dataService.getPopularMovies().subscribe(data => {
       // assign modified data to variable
       this.popularMovies = this.modifyData(data);
+      console.log(this.popularMovies);
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
