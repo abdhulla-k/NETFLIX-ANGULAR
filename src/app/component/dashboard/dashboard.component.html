@@ -17,14 +17,28 @@
     <!-- /latest movies -->
 
     <!-- popular movies -->
-    <div class="row mt-3 d-flex justify-content-center">
-        <div *ngFor="let item of popularMovies.results;" class="card m-1" style="width: 18rem;">
-            <img class="card-img-top" src="{{item.backdrop_path}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">{{item}}</p>
-            </div>
+    <div class="row pt-3 d-flex justify-content-center" style="background-color: black;">
+        <hr>
+        <div style="text-align: center;">
+            <h1 class="m-3">
+                Popular Movies
+            </h1>
         </div>
+        <hr>
+        <app-movie *ngFor="let item of popularMovies.results;" [movie]="item" style="width: 18rem;"></app-movie>
+    </div>
+    <!-- /popular movies -->
+
+    <!-- popular movies -->
+    <div class="row pt-3 d-flex justify-content-center" style="background-color: black;">
+        <hr>
+        <div style="text-align: center;">
+            <h1 class="m-3">
+                Now Playing Movies
+            </h1>
+        </div>
+        <hr>
+        <app-movie *ngFor="let item of topRatedMovies.results;" [movie]="item" style="width: 18rem;"></app-movie>
     </div>
     <!-- /popular movies -->
     
