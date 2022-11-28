@@ -9,6 +9,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { MovieComponent } from './component/dashboard/movie/movie.component';
 import { MoviesComponent } from './component/movies/movies.component';
 import { HeaderComponent } from './component/header/header.component';
+import { AllMoviesComponent } from './component/all-movies/all-movies.component';
+import { SingleMovieComponent } from './component/all-movies/single-movie/single-movie.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HeaderComponent } from './component/header/header.component';
     DashboardComponent,
     MovieComponent,
     MoviesComponent,
-    HeaderComponent
+    HeaderComponent,
+    AllMoviesComponent,
+    SingleMovieComponent
   ],
   imports: [
     BrowserModule,

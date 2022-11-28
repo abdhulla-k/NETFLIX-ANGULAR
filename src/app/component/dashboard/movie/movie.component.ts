@@ -22,6 +22,6 @@ export class MovieComponent {
   // show all movies function with category
   showAll() {
     this.dataService.showAll(this.movie.category);
-    this.router.navigate(['showAll']);
+    this.router.navigate(['category']);
   }
 }
