@@ -9,9 +9,10 @@ style="background-color: black;">
 </div>
 <hr>
 <app-single-movie
-    *ngFor="let item of allMovies?.results;" 
+    *ngFor="let item of allMovies?.results; let ind = index;" 
     [type]="'nowPlayingMovies'"
-    [movie]="item" 
+    [movie]="item"
+    [index]="ind"
     class="m-2 d-flex justify-content-cente"
     style="width: 18rem;">
 </app-single-movie>

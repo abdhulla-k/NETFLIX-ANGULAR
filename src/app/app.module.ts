@@ -11,6 +11,7 @@ import { MoviesComponent } from './component/movies/movies.component';
 import { HeaderComponent } from './component/header/header.component';
 import { AllMoviesComponent } from './component/all-movies/all-movies.component';
 import { SingleMovieComponent } from './component/all-movies/single-movie/single-movie.component';
+import { DetailsComponent } from './component/details/details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SingleMovieComponent } from './component/all-movies/single-movie/single
     MoviesComponent,
     HeaderComponent,
     AllMoviesComponent,
-    SingleMovieComponent
+    SingleMovieComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

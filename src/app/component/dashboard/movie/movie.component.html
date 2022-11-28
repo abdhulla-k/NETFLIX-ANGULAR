@@ -1,4 +1,4 @@
-<div *ngIf="index < 6" class="card m-1" style="width: 18rem; min-height: 50px;">
+<div *ngIf="index < 6" class="card m-1" style="width: 18rem; min-height: 50px;" (click)="showDetails()">
     <img class="card-img-top" [src]="movie.backdrop_path" alt="Card image cap">
     <div class="card-body" style="min-height: 100px;">
         <h5 class="card-title">{{ movie.title }}</h5>

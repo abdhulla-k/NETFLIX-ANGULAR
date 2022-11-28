@@ -12,6 +12,7 @@ export class DataService {
 
   api_key: string = '40f683e4602127f11f62ae016bd0b5c5';
   selectedCategory = new EventEmitter<String>();
+  detail: any;
 
   constructor(private http: HttpClient) { }
 

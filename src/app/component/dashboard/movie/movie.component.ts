@@ -24,4 +24,10 @@ export class MovieComponent {
     this.dataService.showAll(this.movie.category);
     this.router.navigate(['category']);
   }
+
+  showDetails() {
+    // console.log(this.movie);
+    this.dataService.detail = this.movie;
+    this.router.navigate(['/details']);
+  }
 }

@@ -67,4 +67,8 @@ export class AllMoviesComponent implements OnInit {
     // return modified data
     return data;
   }
+
+  showDetails() {
+    console.log("hi")
+  }
 }
