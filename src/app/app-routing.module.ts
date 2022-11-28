@@ -6,11 +6,14 @@ import { MoviesComponent } from './component/movies/movies.component';
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'showAll', component: MoviesComponent}
+  { path: 'showAll', component: MoviesComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    RouterModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
