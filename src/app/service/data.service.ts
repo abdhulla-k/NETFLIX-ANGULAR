@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,14 @@ export class DataService {
   url: string = 'https://api.themoviedb.org/3';
 
   api_key: string = '40f683e4602127f11f62ae016bd0b5c5';
+  selectedCategory = new EventEmitter<String>();
 
   constructor(private http: HttpClient) { }
+
+  // show all movie. emit category
+  showAll(category: String) {
+    this.selectedCategory.emit(category);
+  }
 
   // function to get the latest movie details. this function will return an observable object.
   getLatestMovie(): Observable<any> {

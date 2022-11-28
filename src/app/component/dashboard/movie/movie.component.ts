@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-movie',
@@ -11,7 +13,15 @@ export class MovieComponent {
   @Input() type: string;
   changeText = true;
 
+  constructor(private dataService: DataService, private router: Router) { }
+
   changeTextStatus() {
     this.changeText = !this.changeText;
+  }
+
+  // show all movies function with category
+  showAll() {
+    this.dataService.showAll(this.movie.category);
+    this.router.navigate(['showAll']);
   }
 }

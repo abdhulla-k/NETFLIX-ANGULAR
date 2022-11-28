@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   trendingMovies: any;
   originals: any;
 
+  hi = "hi"
+
   constructor( private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -30,14 +32,18 @@ export class DashboardComponent implements OnInit {
     this.getUpCommingMovies();
     this.getTrendingMovies();
     this.getOriginal();
+    setInterval(()=>{
+      this.hi += 'o';
+    }, 3000)
   }
 
   // this is the function to modify all data fetched. this function will go through all elements and make sure there is title available.
-  modifyData(data) {
+  modifyData(data, category) {
     if(data.results) {
       // go through all the elements of array
       data.results.forEach(element => {
         element.backdrop_path = "https://image.tmdb.org/t/p/original"+element.backdrop_path+"?api_key="+this.api_key;
+        element.category = category;
 
         // make sure there is title available
         if(!element.title) {
@@ -76,7 +82,7 @@ export class DashboardComponent implements OnInit {
   getPopularMovies() {
     this.dataService.getPopularMovies().subscribe(data => {
       // assign modified data to variable
-      this.popularMovies = this.modifyData(data);
+      this.popularMovies = this.modifyData(data, 'popular');
       console.log(this.popularMovies);
     }, err => {
       console.log("error while fitching popular movies");
@@ -88,7 +94,7 @@ export class DashboardComponent implements OnInit {
   getNowPlayingMovies() {
     this.dataService.getNowPlayingMovies().subscribe(data => {
       // assign modified data to variable
-      this.nowPlayingMovies = this.modifyData(data);
+      this.nowPlayingMovies = this.modifyData(data, 'nowPlaying');
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
@@ -99,7 +105,7 @@ export class DashboardComponent implements OnInit {
   getTopRatedMovies() {
     this.dataService.getTopRatedMovies().subscribe(data => {
       // assign modified data to variable
-      this.topRatedMovies = this.modifyData(data);
+      this.topRatedMovies = this.modifyData(data, 'topRated');
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
@@ -110,7 +116,7 @@ export class DashboardComponent implements OnInit {
   getUpCommingMovies() {
     this.dataService.getUpComingMovies().subscribe(data => {
       // assign modified data to variable
-      this.upComingMovies = this.modifyData(data);
+      this.upComingMovies = this.modifyData(data, 'upcoming');
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
@@ -121,7 +127,7 @@ export class DashboardComponent implements OnInit {
   getTrendingMovies() {
     this.dataService.getTrendingMovies().subscribe(data => {
       // assign modified data to variable
-      this.trendingMovies = this.modifyData(data);
+      this.trendingMovies = this.modifyData(data, 'trending');
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
@@ -133,7 +139,7 @@ export class DashboardComponent implements OnInit {
     // call function from service
     this.dataService.getOriginals().subscribe(data => {
       // assign modified data to variable
-      this.originals = this.modifyData(data);
+      this.originals = this.modifyData(data, 'series');
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)

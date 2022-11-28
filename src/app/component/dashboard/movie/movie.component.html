@@ -4,6 +4,13 @@
         <h5 class="card-title">{{ movie.title }}</h5>
     </div>
     <div *ngIf="index === 5" style="position: absolute; color: green; margin-left: 78%; margin-top: 45%;">
-        <i class='fas fa-arrow-circle-right' (mouseleave)="changeTextStatus()"  (mouseover)="changeTextStatus()" [ngStyle]="{'color': changeText? 'green' : 'blue'}" style='font-size:48px;color:green'></i>
+        <i 
+            class='fas fa-arrow-circle-right' 
+            (mouseleave)="changeTextStatus()"  
+            (mouseover)="changeTextStatus()" 
+            (click)="showAll()"
+            [ngStyle]="{'color': changeText? 'green' : 'blue'}" 
+            style='font-size:48px;color:green'>
+        </i>
     </div>
 </div>

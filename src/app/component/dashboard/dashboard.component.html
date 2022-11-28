@@ -23,14 +23,14 @@
         <hr>
         <div style="text-align: center;">
             <h1 class="m-3">
-                Popular Movies
+                Now Playing Movies
             </h1>
         </div>
         <hr>
         <app-movie 
-            *ngFor="let item of popularMovies.results;let ind = index" 
-            [type]="'popularMovies'" 
-            [index]="ind"
+            *ngFor="let item of popularMovies.results; let ind = index" 
+            [type]="'nowPlayingMovies'"
+            [index]="ind" 
             [movie]="item" 
             style="width: 18rem;">
         </app-movie>
