@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   upComingMovies: any;
   trendingMovies: any;
   originals: any;
+  path: any;
 
   hi = "hi"
 
@@ -83,11 +84,20 @@ export class DashboardComponent implements OnInit {
     this.dataService.getPopularMovies().subscribe(data => {
       // assign modified data to variable
       this.popularMovies = this.modifyData(data, 'popular');
-      console.log(this.popularMovies);
+      this.path = this.popularMovies.results[0].backdrop_path;
+      this.changeTheHomeImage()
     }, err => {
       console.log("error while fitching popular movies");
       console.log(err)
     })
+  }
+
+  changeTheHomeImage() {
+    let length = this.popularMovies.results.length;
+    setInterval(()=> {
+      const rand = Math.floor(Math.random() * (length - 1 + 1)) + 1;
+      this.path = this.popularMovies.results[rand].backdrop_path;
+    }, 5000)
   }
 
   // function to fetch now playing movies
