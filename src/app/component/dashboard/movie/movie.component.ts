@@ -7,4 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieComponent {
   @Input() movie: any;
+  @Input() index: any;
+  @Input() type: string;
+  changeText = true;
+
+  changeTextStatus() {
+    this.changeText = !this.changeText;
+  }
 }

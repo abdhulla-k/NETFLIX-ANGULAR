@@ -1,7 +1,9 @@
-<div class="card m-1" style="width: 18rem;">
+<div *ngIf="index < 6" class="card m-1" style="width: 18rem; min-height: 50px;">
     <img class="card-img-top" [src]="movie.backdrop_path" alt="Card image cap">
-    <div class="card-body">
+    <div class="card-body" style="min-height: 100px;">
         <h5 class="card-title">{{ movie.title }}</h5>
-        <!-- <p class="card-text">{{item}}</p> -->
+    </div>
+    <div *ngIf="index === 5" style="position: absolute; color: green; margin-left: 78%; margin-top: 45%;">
+        <i class='fas fa-arrow-circle-right' (mouseleave)="changeTextStatus()"  (mouseover)="changeTextStatus()" [ngStyle]="{'color': changeText? 'green' : 'blue'}" style='font-size:48px;color:green'></i>
     </div>
 </div>

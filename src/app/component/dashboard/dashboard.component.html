@@ -17,7 +17,9 @@
     <!-- /latest movies -->
 
     <!-- popular movies -->
-    <div class="row pt-3 d-flex justify-content-center" style="background-color: black;">
+    <div 
+        class="row pt-3 d-flex justify-content-center" 
+        style="background-color: black;">
         <hr>
         <div style="text-align: center;">
             <h1 class="m-3">
@@ -25,12 +27,20 @@
             </h1>
         </div>
         <hr>
-        <app-movie *ngFor="let item of popularMovies.results;" [movie]="item" style="width: 18rem;"></app-movie>
+        <app-movie 
+            *ngFor="let item of popularMovies.results;let ind = index" 
+            [type]="'popularMovies'" 
+            [index]="ind"
+            [movie]="item" 
+            style="width: 18rem;">
+        </app-movie>
     </div>
     <!-- /popular movies -->
 
     <!-- popular movies -->
-    <div class="row pt-3 d-flex justify-content-center" style="background-color: black;">
+    <div 
+        class="row pt-3 d-flex justify-content-center" 
+        style="background-color: black;">
         <hr>
         <div style="text-align: center;">
             <h1 class="m-3">
@@ -38,8 +48,14 @@
             </h1>
         </div>
         <hr>
-        <app-movie *ngFor="let item of topRatedMovies.results;" [movie]="item" style="width: 18rem;"></app-movie>
+        <app-movie 
+            *ngFor="let item of topRatedMovies.results; let ind = index" 
+            [type]="'nowPlayingMovies'"
+            [index]="ind" 
+            [movie]="item" 
+            style="width: 18rem;">
+        </app-movie>
     </div>
     <!-- /popular movies -->
-    
+
 </div>
